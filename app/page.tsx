@@ -1,9 +1,14 @@
-export default function Home() {
+'use client';
+
+import { useTranslations } from 'next-intl';
+
+export default function HomePage() {
+  const t = useTranslations('HomePage');
+
   return (
-  <main className="flex min-h-screen items-center justify-center">
-      <h1 className="text-3xl font-semibold">
-        AI Diary — мой голосовой дневник
-      </h1>
-    </main>
+    <div>
+      <h1>{t('title')}</h1>
+      <button>{t('startRecording')}</button>
+    </div>
   );
 }
