@@ -11,7 +11,6 @@ export default function HomePage() {
   return (
     <main className="p-8">
       <h1>{t("title")}</h1>
-      <button>{t("startRecording")}</button>
     </main>
   );
 }

@@ -1,6 +1,55 @@
 {
   "HomePage": {
-    "title": "Мой AI дневник",
-    "startRecording": "Начать запись"
+    "title": "Главная"
+  },
+  "Auth": {
+    "tabs": {
+      "login": "Вход",
+      "register": "Регистрация"
+    },
+    "login": {
+      "title": "С возвращением!",
+      "description": "Введите данные для входа в дневник.",
+      "submit_button": "Войти",
+      "loading_button": "Вход...",
+      "forgot_password": "Забыли пароль?"
+    },
+    "register": {
+      "title": "Создать аккаунт",
+      "description": "Заполните данные для регистрации.",
+      "submit_button": "Создать аккаунт",
+      "loading_button": "Создаем..."
+    },
+    "reset": {
+      "title": "Восстановление пароля",
+      "description": "Введите email, и мы отправим ссылку для сброса.",
+      "submit_button": "Отправить ссылку",
+      "back_button": "Вернуться ко входу",
+      "new_password_title": "Новый пароль",
+      "new_password_desc": "Придумайте новый надежный пароль.",
+      "update_button": "Обновить пароль"
+    },
+    "verify": {
+      "title": "Проверьте вашу почту",
+      "description": "Мы отправили ссылку для подтверждения на ваш email. Пожалуйста, перейдите по ней.",
+      "spam_hint": "Не получили письмо? Проверьте папку 'Спам'.",
+      "return": "Вернуться ко входу"
+    },
+    "fields": {
+      "email": "Email",
+      "password": "Пароль",
+      "name": "Имя",
+      "new_password": "Новый пароль"
+    },
+    "errors": {
+      "general": "Произошла ошибка. Попробуйте позже."
+    },
+    "success": {
+      "check_email": "Проверьте почту для сброса пароля"
+    }
+  },
+  "UserMenu": {
+    "login": "Войти",
+    "logout": "Выйти"
   }
 }

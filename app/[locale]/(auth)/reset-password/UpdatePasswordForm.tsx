@@ -7,8 +7,10 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Loader2 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function UpdatePasswordForm() {
+  const t = useTranslations("Auth");
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
 
@@ -28,9 +30,9 @@ export function UpdatePasswordForm() {
   return (
     <Card className="w-[400px]">
       <CardHeader>
-        <CardTitle>Новый пароль</CardTitle>
+        <CardTitle>{t('reset.new_password_title')}</CardTitle>
         <CardDescription>
-          Придумайте новый надежный пароль для вашего аккаунта.
+          {t('reset.new_password_title')}
         </CardDescription>
       </CardHeader>
       <form onSubmit={handleSubmit}>
@@ -41,14 +43,14 @@ export function UpdatePasswordForm() {
             </div>
           )}
           <div className="space-y-1">
-            <Label htmlFor="password">Новый пароль</Label>
+            <Label htmlFor="password">{t('reset.new_password_title')}</Label>
             <Input id="password" name="password" type="password" required minLength={6} />
           </div>
         </CardContent>
         <CardFooter>
           <Button className="w-full" type="submit" disabled={isPending}>
             {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-            Обновить пароль
+            {t('reset.update_button')}
           </Button>
         </CardFooter>
       </form>

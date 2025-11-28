@@ -2,6 +2,7 @@
 
 import { useState, useTransition } from "react";
 import { loginAction, signupAction, resetPasswordAction } from "./actions";
+import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -23,6 +24,7 @@ import {
 import { Loader2, ArrowLeft } from "lucide-react";
 
 export function AuthForm() {
+  const t = useTranslations("Auth");
   const [isPending, startTransition] = useTransition();
   const [error, setError] = useState<string | null>(null);
   const [successMessage, setSuccessMessage] = useState<string | null>(null);
@@ -60,9 +62,9 @@ export function AuthForm() {
     return (
       <Card className="w-[400px]">
         <CardHeader>
-          <CardTitle>Восстановление пароля</CardTitle>
+          <CardTitle>{t('reset.title')}</CardTitle>
           <CardDescription>
-            Введите email, и мы отправим ссылку для сброса.
+            {t('reset.new_password_desc')}
           </CardDescription>
         </CardHeader>
         <form onSubmit={(e) => handleSubmit(e, 'reset')}>
@@ -78,14 +80,14 @@ export function AuthForm() {
               </div>
             )}
             <div className="space-y-1">
-              <Label htmlFor="reset-email">Email</Label>
+              <Label htmlFor="reset-email">{t('fields.email')}</Label>
               <Input id="reset-email" name="email" type="email" required placeholder="name@example.com" />
             </div>
           </CardContent>
           <CardFooter className="flex flex-col gap-2">
-            <Button className="w-full" type="submit" disabled={isPending}>
+            <Button className="w-full mt-4" type="submit" disabled={isPending}>
               {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-              Отправить ссылку
+              {t('reset.submit_button')}
             </Button>
             <Button
               variant="ghost"
@@ -93,7 +95,7 @@ export function AuthForm() {
               onClick={() => setView('auth')}
               type="button"
             >
-              <ArrowLeft className="mr-2 h-4 w-4" /> Вернуться ко входу
+              <ArrowLeft className="mr-2 h-4 w-4" /> {t('reset.back_button')}
             </Button>
           </CardFooter>
         </form>
@@ -104,15 +106,15 @@ export function AuthForm() {
   return (
     <Tabs defaultValue="login" className="w-[400px]">
       <TabsList className="grid w-full grid-cols-2">
-        <TabsTrigger value="login">Вход</TabsTrigger>
-        <TabsTrigger value="register">Регистрация</TabsTrigger>
+        <TabsTrigger value="login">{t('tabs.login')}</TabsTrigger>
+        <TabsTrigger value="register">{t('tabs.register')}</TabsTrigger>
       </TabsList>
 
       <TabsContent value="login">
         <Card>
           <CardHeader>
-            <CardTitle>С возвращением!</CardTitle>
-            <CardDescription>Введите данные для входа.</CardDescription>
+            <CardTitle>{t('login.title')}</CardTitle>
+            <CardDescription>{t('login.description')}</CardDescription>
           </CardHeader>
           <form onSubmit={(e) => handleSubmit(e, 'login')}>
             <CardContent className="space-y-4">
@@ -122,27 +124,27 @@ export function AuthForm() {
                 </div>
               )}
               <div className="space-y-1">
-                <Label htmlFor="email">Email</Label>
+                <Label htmlFor="email">{t('fields.email')}</Label>
                 <Input id="email" name="email" type="email" placeholder="name@example.com" required />
               </div>
               <div className="space-y-1">
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="password">Пароль</Label>
+                  <Label htmlFor="password">{t('fields.password')}</Label>
                   <button
                     type="button"
                     onClick={() => setView('forgot_password')}
                     className="text-xs text-muted-foreground hover:text-black hover:underline"
                   >
-                    Забыли пароль?
+                    {t('login.forgot_password')}
                   </button>
                 </div>
                 <Input id="password" name="password" type="password" required />
               </div>
             </CardContent>
             <CardFooter>
-              <Button className="w-full" type="submit" disabled={isPending}>
+              <Button className="w-full mt-4" type="submit" disabled={isPending}>
                 {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                Войти
+                {t('login.submit_button')}
               </Button>
             </CardFooter>
           </form>
@@ -152,8 +154,8 @@ export function AuthForm() {
       <TabsContent value="register">
         <Card>
           <CardHeader>
-            <CardTitle>Создать аккаунт</CardTitle>
-            <CardDescription>Заполните данные для регистрации.</CardDescription>
+            <CardTitle>{t('register.title')}</CardTitle>
+            <CardDescription>{t('register.description')}</CardDescription>
           </CardHeader>
           <form onSubmit={(e) => handleSubmit(e, 'register')}>
             <CardContent className="space-y-4">
@@ -162,25 +164,24 @@ export function AuthForm() {
                   {error}
                 </div>
               )}
-              {/* Поле ИМЯ */}
               <div className="space-y-1">
-                <Label htmlFor="fullName">Имя</Label>
-                <Input id="fullName" name="fullName" type="text" placeholder="Елена" required />
+                <Label htmlFor="fullName">{t('fields.name')}</Label>
+                <Input id="fullName" name="fullName" type="text" placeholder={t('fields.name')} required />
               </div>
 
               <div className="space-y-1">
-                <Label htmlFor="reg-email">Email</Label>
+                <Label htmlFor="reg-email">{t('fields.email')}</Label>
                 <Input id="reg-email" name="email" type="email" placeholder="name@example.com" required />
               </div>
               <div className="space-y-1">
-                <Label htmlFor="reg-password">Пароль</Label>
+                <Label htmlFor="reg-password">{t('fields.password')}</Label>
                 <Input id="reg-password" name="password" type="password" required />
               </div>
             </CardContent>
             <CardFooter>
-              <Button className="w-full" type="submit" disabled={isPending}>
+              <Button className="w-full mt-4" type="submit" disabled={isPending}>
                 {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                Создать аккаунт
+                {t('register.submit_button')}
               </Button>
             </CardFooter>
           </form>

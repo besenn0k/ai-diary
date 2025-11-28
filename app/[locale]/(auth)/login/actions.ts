@@ -4,6 +4,7 @@ import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
 import { headers } from 'next/headers'
+import { getTranslations } from 'next-intl/server';
 
 type ActionResponse = {
   error?: string
@@ -57,6 +58,7 @@ export async function signupAction(formData: FormData): Promise<ActionResponse> 
 }
 
 export async function resetPasswordAction(formData: FormData): Promise<ActionResponse> {
+  const t = await getTranslations('Auth');
   const supabase = await createClient()
   const email = formData.get('email') as string
   const origin = (await headers()).get('origin')
@@ -69,5 +71,5 @@ export async function resetPasswordAction(formData: FormData): Promise<ActionRes
     return { error: error.message }
   }
 
-  return { success: true, message: 'Проверьте почту для сброса пароля' }
+  return { success: true, message: t('success.check_email') }
 }

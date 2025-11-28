@@ -1,6 +1,55 @@
 {
   "HomePage": {
-    "title": "AI",
-    "startRecording": "Начать запись"
+    "title": "Startseite"
+  },
+  "Auth": {
+    "tabs": {
+      "login": "Anmelden",
+      "register": "Registrieren"
+    },
+    "login": {
+      "title": "Willkommen zurück!",
+      "description": "Geben Sie Ihre Daten ein, um auf das Tagebuch zuzugreifen.",
+      "submit_button": "Anmelden",
+      "loading_button": "Anmeldung...",
+      "forgot_password": "Passwort vergessen?"
+    },
+    "register": {
+      "title": "Konto erstellen",
+      "description": "Füllen Sie die Daten für die Registrierung aus.",
+      "submit_button": "Konto erstellen",
+      "loading_button": "Erstelle Konto..."
+    },
+    "reset": {
+      "title": "Passwort zurücksetzen",
+      "description": "Geben Sie Ihre E-Mail ein und wir senden Ihnen einen Link zum Zurücksetzen.",
+      "submit_button": "Link senden",
+      "back_button": "Zurück zur Anmeldung",
+      "new_password_title": "Neues Passwort",
+      "new_password_desc": "Erstellen Sie ein neues sicheres Passwort.",
+      "update_button": "Passwort aktualisieren"
+    },
+    "verify": {
+      "title": "Überprüfen Sie Ihre E-Mails",
+      "description": "Wir haben einen Bestätigungslink an Ihre E-Mail gesendet. Bitte klicken Sie darauf, um fortzufahren.",
+      "spam_hint": "Keine E-Mail erhalten? Überprüfen Sie Ihren Spam-Ordner.",
+      "return": "Zurück zur Anmeldung"
+    },
+    "fields": {
+      "email": "E-Mail",
+      "password": "Passwort",
+      "name": "Name",
+      "new_password": "Neues Passwort"
+    },
+    "errors": {
+      "general": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut."
+    },
+    "success": {
+      "check_email": "Überprüfen Sie Ihre E-Mails, um das Passwort zurückzusetzen."
+    }
+  },
+  "UserMenu": {
+    "login": "Anmelden",
+    "logout": "Abmelden"
   }
 }

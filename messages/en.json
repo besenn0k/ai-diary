@@ -1,6 +1,55 @@
 {
   "HomePage": {
-    "title": "AI",
-    "startRecording": "Начать запись"
+    "title": "Home"
+  },
+  "Auth": {
+    "tabs": {
+      "login": "Login",
+      "register": "Register"
+    },
+    "login": {
+      "title": "Welcome back!",
+      "description": "Enter your credentials to access your diary.",
+      "submit_button": "Sign In",
+      "loading_button": "Signing in...",
+      "forgot_password": "Forgot password?"
+    },
+    "register": {
+      "title": "Create an account",
+      "description": "Start your smart diary today.",
+      "submit_button": "Sign Up",
+      "loading_button": "Creating..."
+    },
+    "reset": {
+      "title": "Reset Password",
+      "description": "Enter your email to receive a reset link.",
+      "submit_button": "Send Link",
+      "back_button": "Back to login",
+      "new_password_title": "New Password",
+      "new_password_desc": "Create a new strong password.",
+      "update_button": "Update Password"
+    },
+    "verify": {
+      "title": "Check your email",
+      "description": "We sent a confirmation link to your email. Please click it to activate your account.",
+      "spam_hint": "Didn't get the email? Check your Spam folder.",
+      "return": "Return to login"
+    },
+    "fields": {
+      "email": "Email",
+      "password": "Password",
+      "name": "Name",
+      "new_password": "New Password"
+    },
+    "errors": {
+      "general": "An error occurred. Please try again."
+    },
+    "success": {
+      "check_email": "Check your email to reset password"
+    }
+  },
+  "UserMenu": {
+    "login": "Log in",
+    "logout": "Log out"
   }
 }

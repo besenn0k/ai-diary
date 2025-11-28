@@ -1,6 +1,55 @@
 {
   "HomePage": {
-    "title": "AI",
-    "startRecording": "Начать запись"
+    "title": "Головна"
+  },
+  "Auth": {
+    "tabs": {
+      "login": "Вхід",
+      "register": "Реєстрація"
+    },
+    "login": {
+      "title": "З поверненням!",
+      "description": "Введіть дані для входу в щоденник.",
+      "submit_button": "Увійти",
+      "loading_button": "Вхід...",
+      "forgot_password": "Забули пароль?"
+    },
+    "register": {
+      "title": "Створити акаунт",
+      "description": "Заповніть дані для реєстрації.",
+      "submit_button": "Створити акаунт",
+      "loading_button": "Створюємо..."
+    },
+    "reset": {
+      "title": "Відновлення пароля",
+      "description": "Введіть email, і ми надішлемо посилання для скидання.",
+      "submit_button": "Надіслати посилання",
+      "back_button": "Повернутися до входу",
+      "new_password_title": "Новий пароль",
+      "new_password_desc": "Вигадайте новий надійний пароль.",
+      "update_button": "Оновити пароль"
+    },
+    "verify": {
+      "title": "Перевірте вашу пошту",
+      "description": "Ми надіслали посилання для підтвердження на ваш email. Будь ласка, перейдіть за ним.",
+      "spam_hint": "Не отримали лист? Перевірте папку 'Спам'.",
+      "return": "Повернутися до входу"
+    },
+    "fields": {
+      "email": "Email",
+      "password": "Пароль",
+      "name": "Ім'я",
+      "new_password": "Новий пароль"
+    },
+    "errors": {
+      "general": "Сталася помилка. Спробуйте пізніше."
+    },
+    "success": {
+      "check_email": "Перевірте пошту для скидання пароля"
+    }
+  },
+  "UserMenu": {
+    "login": "Увійти",
+    "logout": "Вийти"
   }
 }
