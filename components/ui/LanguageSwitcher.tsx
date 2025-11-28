@@ -5,6 +5,23 @@ import { useParams } from "next/navigation";
 import { useRouter, usePathname } from "@/i18n/routing";
 import { useTransition } from "react";
 
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+import { Check } from "lucide-react";
+
+const localeNames: Record<string, string> = {
+  de: "Deutsch",
+  en: "English",
+  uk: "Українська",
+  ru: "Русский",
+};
+
 export default function LanguageSwitcher() {
   const locale = useLocale();
   const router = useRouter();
@@ -16,7 +33,7 @@ export default function LanguageSwitcher() {
   const handleLocaleChange = (nextLocale: string) => {
     startTransition(() => {
       router.replace(
-        // @ts-expect-error
+        // @ts-expect-error -- next-intl
         { pathname, params },
         { locale: nextLocale }
       );
@@ -26,20 +43,35 @@ export default function LanguageSwitcher() {
   const locales = ["de", "en", "uk", "ru"];
 
   return (
-    <div className="flex gap-2">
-      {locales.map((cur) => (
-        <button
-          key={cur}
-          onClick={() => handleLocaleChange(cur)}
-          disabled={isPending || cur === locale}
-          className={`px-3 py-1 rounded border text-sm transition-colors
-            ${cur === locale ? "bg-primary text-white" : "hover:bg-muted"}
-            ${isPending ? "opacity-50 cursor-not-allowed" : ""}
-          `}
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button
+          variant="ghost"
+          className="rounded-full w-9 h-9 p-0 font-bold text-[13px]"
+          disabled={isPending}
         >
-          {cur.toUpperCase()}
-        </button>
-      ))}
-    </div>
+          <span>{locale.toUpperCase()}</span>
+          <span className="sr-only">Сменить язык</span>
+        </Button>
+      </DropdownMenuTrigger>
+
+      <DropdownMenuContent align="end">
+        {locales.map((cur) => (
+          <DropdownMenuItem
+            key={cur}
+            onClick={() => handleLocaleChange(cur)}
+            className="cursor-pointer flex items-center justify-between min-w-[120px]"
+          >
+            <span className="flex items-center gap-2">
+              {localeNames[cur] || cur.toUpperCase()}
+            </span>
+
+            {cur === locale && (
+              <Check className="h-4 w-4 ml-2 text-primary" />
+            )}
+          </DropdownMenuItem>
+        ))}
+      </DropdownMenuContent>
+    </DropdownMenu>
   );
 }
